@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Online HTML Editor Clone</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- CodeMirror CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/material-darker.min.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">MiniCompiler</div>
+    <nav class="nav">
+      <button id="sampleBtn" class="btn small">Load Sample</button>
+      <button id="downloadBtn" class="btn small">Download</button>
+      <button id="zipBtn" class="btn small">Export ZIP</button>
+      <button id="runBtn" class="btn primary">Run ▶</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Mobile Tabs -->
+    <div class="mobile-tabs">
+      <button class="mobile-tab active" data-target="codePane">Code</button>
+      <button class="mobile-tab" data-target="runPane">Output</button>
+    </div>
+
+    <div class="mobile-tab-content">
+      <!-- Code Pane -->
+      <div id="codePane" class="mobile-pane active">
+        <section class="editor-panel">
+          <div class="tabs">
+            <button class="tab active" data-mode="html">HTML</button>
+            <button class="tab" data-mode="css">CSS</button>
+            <button class="tab" data-mode="js">JS</button>
+          </div>
+
+          <div class="editors">
+            <textarea id="htmlEditor"></textarea>
+            <textarea id="cssEditor" class="hidden"></textarea>
+            <textarea id="jsEditor" class="hidden"></textarea>
+          </div>
+
+          <div class="bottom-bar">
+            <small>Auto-run:
+              <label class="switch">
+                <input id="autorun" type="checkbox" />
+                <span class="slider"></span>
+              </label>
+            </small>
+          </div>
+        </section>
+      </div>
+
+      <!-- Run Pane -->
+      <div id="runPane" class="mobile-pane">
+        <section class="preview-panel">
+          <div class="preview-header">
+            <div>Output</div>
+            <div class="preview-controls">
+              <button id="openInNew" class="btn small">Open</button>
+              <button id="clearOutput" class="btn small">Clear</button>
+            </div>
+          </div>
+          <iframe id="preview" sandbox="allow-scripts allow-forms allow-modals"></iframe>
+        </section>
+      </div>
+    </div>
+
+    <!-- Divider (desktop only) -->
+    <div id="divider"></div>
+
+    <!-- Desktop preview (hidden on mobile) -->
+    <section class="preview-panel desktop-preview">
+      <div class="preview-header">
+        <div>Output</div>
+        <div class="preview-controls">
+          <button id="openInNewDesktop" class="btn small">Open</button>
+          <button id="clearOutputDesktop" class="btn small">Clear</button>
+        </div>
+      </div>
+      <iframe id="previewDesktop" sandbox="allow-scripts allow-forms allow-modals"></iframe>
+    </section>
+  </main>
+
+  <footer class="footer">Built with ❤️ using CodeMirror</footer>
+
+  <!-- JSZip -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+  <!-- CodeMirror JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
